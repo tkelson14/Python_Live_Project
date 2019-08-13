@@ -1,0 +1,21 @@
+{% extends "DropboxApp_base.html" %}
+
+{% block content %}
+
+    {% include "nav.html" %}
+    <h1 class='text-center pt-5'>File List</h1>
+        <table class='table'>
+            <p>Uploaded files</p>
+            <!--List all files in directory with links to file and uploaded time-->
+            <ul>
+                {% for obj in document %}
+                    <li>
+                        <small>({{ obj.title }})</small>
+                        <a href="../../../DropboxApp{{ obj.document.url }}">{{ obj.document.name }}</a>
+                        <small>(Uploaded at: {{ obj.uploaded_at }})</small>                        
+                    </li>
+                {% endfor %}
+            </ul>
+        </table>
+
+{% endblock %}
